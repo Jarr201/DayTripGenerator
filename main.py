@@ -1,10 +1,10 @@
 import random
 
 
-destination = ["The Bahamas", "Tokyo", "New York", "Florida"]
-restuarant = ["fast food place", "buffet", "diner", "bar"]
-transportation = ["train", "airplane", "car", "cruise ship"]
-entertainment  = ["nature walk", "shopping spree", "city tour", "beach visit"]
+destination = ["The Bahamas", "Tokyo", "New York", "Florida", "Italy", "Los Angeles", "Athens"]
+restuarant = ["fast food place", "buffet", "diner", "bar", "food truck", "street food market"]
+transportation = ["train", "airplane", "car", "cruise ship", "skateboard", "bicycle"]
+entertainment  = ["nature walk", "shopping spree", "city tour", "beach visit", "museum visit", "boat ride", "theme park visit"]
 
 def begin(intro = "Hello and Welcome to your trip planner! Lets get you started!"):
     print(intro)
@@ -29,29 +29,44 @@ def reroll():
         answer = input(f"Would you prefer going to {trip_dest}? Y/N ")
         if answer == "Y":
             confirmation()
-        if answer == "N":
+        elif answer == "N":
             reroll()
+        else:
+            print("Sorry. Please answer again in the correct format. ")
+            confirmation()
     elif request == "Restuarant":
         trip_rest = random.choice(restuarant)
         answer = input(f"Would you prefer eating at a {trip_rest}? Y/N ")
         if answer == "Y":
             confirmation()
-        if answer == "N":
+        elif answer == "N":
             reroll()
+        else:
+            print("Sorry. Please answer again in the correct format. ")
+            confirmation()
     elif request == "Transportation":
         trip_trans = random.choice(transportation)
         answer = input(f"Would you prefer traveling via {trip_trans}? Y/N ")
         if answer == "Y":
             confirmation()
-        if answer == "N":
+        elif answer == "N":
             reroll()
+        else:
+            print("Sorry. Please answer again in the correct format. ")
+            confirmation()
     elif request == "Entertainment":
         trip_enter = random.choice(entertainment)
         answer = input(f"Would you prefer going on a {trip_enter}? Y/N ")
         if answer == "Y":
             confirmation()
-        if answer == "N":
+        elif answer == "N":
             reroll()
+        else:
+            print("Sorry. Please answer again in the correct format. ")
+            confirmation()
+    else:
+        print("Sorry. Please answer again in the correct format. ")
+        confirmation()
     return
 
 def confirmation():
@@ -63,7 +78,8 @@ def confirmation():
         print("No problem! Let's make this plan work for you.")
         reroll()
     else:
-        print(input("Sorry. Please answer again in the correct format. Y/N "))
+        print("Sorry. Please answer again in the correct format. ")
+        confirmation()
     return inquiry
  
 confirmation()
