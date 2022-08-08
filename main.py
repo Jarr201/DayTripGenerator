@@ -1,5 +1,6 @@
 import random
 
+
 destination = ["The Bahamas", "Tokyo", "New York", "Florida"]
 restuarant = ["fast food place", "buffet", "diner", "bar"]
 transportation = ["train", "airplane", "car", "cruise ship"]
@@ -25,18 +26,32 @@ def reroll():
     request = input("What would you like to change? Reply with Destination, Restuarant, Transportation, or Entertainment. ")
     if request == "Destination":
         trip_dest = random.choice(destination)
-        print(input(f"Would you prefer going to {trip_dest}? "))
+        answer = input(f"Would you prefer going to {trip_dest}? Y/N ")
+        if answer == "Y":
+            confirmation()
+        if answer == "N":
+            reroll()
     elif request == "Restuarant":
         trip_rest = random.choice(restuarant)
-        print(input(f"Would you prefer eating at a {trip_rest}? "))
+        answer = input(f"Would you prefer eating at a {trip_rest}? Y/N ")
+        if answer == "Y":
+            confirmation()
+        if answer == "N":
+            reroll()
     elif request == "Transportation":
         trip_trans = random.choice(transportation)
-        print(input(f"Would you prefer traveling via {trip_trans}? "))
+        answer = input(f"Would you prefer traveling via {trip_trans}? Y/N ")
+        if answer == "Y":
+            confirmation()
+        if answer == "N":
+            reroll()
     elif request == "Entertainment":
         trip_enter = random.choice(entertainment)
-        print(input(f"Would you prefer going on a {trip_enter}? "))
-    full_trip = f"You'll be visiting {trip_dest} via {trip_trans}. During your trip, you should eat at a {trip_rest} and go on a {trip_enter} while you're out!"
-    print(full_trip)
+        answer = input(f"Would you prefer going on a {trip_enter}? Y/N ")
+        if answer == "Y":
+            confirmation()
+        if answer == "N":
+            reroll()
     return
 
 def confirmation():
@@ -52,5 +67,3 @@ def confirmation():
     return inquiry
  
 confirmation()
-
-
